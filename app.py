@@ -1,15 +1,17 @@
 import os 
-from flask import Flask, reequst, jsonify
-from firebase_admin import credentials, firestore, initialise_app 
+from flask import Flask, jsonify
 
 
 app = Flask(__name__)
  
+"""
+from firebase_admin import credentials, firestore, initialise_app 
 
 moodi = credentials.Certificate('key.json')
 default_app = initialise_app(moodi)
 db = firestore.client()
 todo_ref = db.collection('todo')
+"""
 
 @app.route('/add', methods=['POST'])
 def create():
@@ -27,7 +29,7 @@ def read():
         todo : Return document that matches query ID.
         all_todos : Return all documents.
     """
-    return jsonify({"Get-success🚀":"True"})
+    return "Get-success🚀 True"
 
 @app.route('/update', methods=['POST', 'PUT'])
 def update():
@@ -43,7 +45,7 @@ def delete():
     """
         delete() : Delete a document from Firestore collection.
     """
-    return jsonify({"Delete-success🚀":"True"})
+    return "Delete-success🚀 True"
 
 port = int(os.environ.get('PORT', 8080))
 if __name__ == '__main__':
