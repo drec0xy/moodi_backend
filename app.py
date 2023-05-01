@@ -13,6 +13,16 @@ db = firestore.client()
 todo_ref = db.collection('todo')
 """
 
+@app.route('/')
+def create():
+    """
+        create() : Add document to Firestore collection with request body.
+        Ensure you pass a custom ID as part of json body in post request,
+        e.g. json={'id': '1', 'title': 'Write a blog post'}
+    """
+    return "Home🚀🚀🚀"
+
+
 @app.route('/add', methods=['POST'])
 def create():
     """
